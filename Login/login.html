@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Login/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" />
+</head>
+
+<body>
+    <section id="header">
+        <a href="/Home/home.html" class="logo">
+            <span class="light-text">PERFECT</span>
+            <span class="dark-text">FIT</span>
+        </a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="/Home/home.html">HOME</a></li>
+                <li><a href="/public/home.html">BLOG</a></li>
+                <li><a href="/About/about.html">ABOUT</a></li>
+                <li><a class="active" href="/Login/login.html"><i class="fa fa-user"></i></a></li>
+
+            </ul>
+        </div>
+    </section>
+
+    <div class="container">
+        <!--img src="/Images/background.jpg" class="background-image"!-->
+        <div class="logo-container">
+            <img src="/Images/logo.png" class="logo">
+        </div>
+        <div class="content-container">
+            <h1>LOGIN</h1>
+            <div class="content">
+                <p class="first-p">Don't have an account? <a href="signup.html">Sign Up</a></p>
+                <div class="input-container-wrapper">
+                    <form id="login-form">
+                        <div class="input-container-wrapper">
+                            <div class="input-container">
+                                <label for="email"><i class="fa fa-user"></i>Email</label><br>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="input-container">
+                                <label for="password"><i class="fa fa-lock"></i>Password</label><br>
+                                <input type="password" id="password" name="password" placeholder="Enter your password"
+                                    required>
+                            </div>
+                        </div>
+                        <button class="login-button" type="submit" id="login">LOGIN</button>
+                    </form>
+                </div>
+
+                <p class="third-p">By logging in, I agree to the <a href="/Policy/privacy-policy.html">privacy
+                        policy</a></p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword /*onAuthStateChangeds, signOut */} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+    import { ref, update } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCFMZiI81PLeSUfWSZJA78ppkOuLfgt8zU",
+        authDomain: "perfect-fit-web.firebaseapp.com",
+        projectId: "perfect-fit-web",
+        storageBucket: "perfect-fit-web.appspot.com",
+        messagingSenderId: "89161650010",
+        appId: "1:89161650010:web:fe2058ac70b91f7e5aed63"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    const loginForm = document.getElementById('login-form');
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                alert('Successful login!');
+
+                // Store user's last_login_date in the database
+                const userRef = ref(database, 'users/' + user.uid);
+                console.log('Before redirection');
+                const last_login_date = new Date().toISOString(); // Convert to string
+                update(userRef, { last_login_date: last_login_date }) // Store as string
+                    .then(() => {
+                        // Data stored successfully
+                        // Redirect to login page
+                       
+                        window.location.href = '/Home/home.html';
+                    })
+                    .catch((error) => {
+                        alert('Failed to store user data: ' + error.message);
+                    });
+                // ...
+            })
+            .catch((error) => {
+                //const errorCode = error.code;
+                const errorMessage = error.message;
+
+                alert(errorMessage);
+            });
+    });
+
+    /*
+    const user = auth.currentUser;
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/auth.user
+            const uid = user.uid;
+            // ...
+        } else {
+            // User is signed out
+            // ...
+        }
+    });
+
+    logout.addEventListener('submit', (e) => {
+        signOut(auth).then(() => {
+            // Sign-out successful.
+            alert('Successful logout');
+        }).catch((error) => {
+            // An error happened.
+            const errorMessage = error.message;
+
+            alert(errorMessage);
+        });
+
+    }); */
+
+</script>
+
+</html>
+
+
+

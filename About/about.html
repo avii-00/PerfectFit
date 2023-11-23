@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/About/about.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+</head>
+
+<body>
+  <section id="header">
+    <a href="/Home/home.html" class="logo">
+      <span class="light-text">PERFECT</span>
+      <span class="dark-text">FIT</span>
+    </a>
+  
+    <div>
+      <ul id="navbar">
+        <li><a href="/Home/home.html">HOME</a></li>
+        <li><a href="/public/home.html">BLOG</a></li>
+        <li><a class="active" href="/About/about.html">ABOUT</a></li>
+        <li><a href="/Login/login.html"><i class="fa fa-user"></i></a></li>
+        <li><a href="logout">LogOut</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="page-header">
+    <h2>KNOW ABOUT US</h2>
+  </section>
+
+  <section id="about-head" class="content-p1">
+    <img src="/Images/logo.png" alt="">
+    <div>
+        <h2>ABOUT</h2>
+        <p class="para-one">Making the art of dressing enjoyable</p>  
+        <p class="para-two">Our goal is to change the way people find outfits they love. This could be done by merging 
+            technology with the answers provided by the people for the style quiz. <br> The Perfect Fit experience
+            is truly personalized for you. Perfect Fit will help you look beautiful while saving your valuable time and 
+            evolving your personal style over time. </p>  <br>
+
+        <abbr title="">We aim to provide an enjoyable experience for all our customers who are interested in finding 
+            personalized outfits for themselves.</abbr>
+
+        <br><br><br>
+        <marquee loop="-1" scrollamount="5" >We offer a blog as a great way to let 
+            customers know about new trends and styles, upcoming fashion shows, news about the industry, and more!
+        </marquee>
+    </div>
+  </section>
+
+  <section id="feature" class="content-p2">
+    <div class="fe-box">
+        <img src="/Images/features/Q&A.png" alt="">
+        <h6>Style Quiz</h6>
+    </div>
+
+    <div class="fe-box">
+        <img src="/Images/features/advice.png" alt="">
+        <h6>Personalized Outfits</h6>
+    </div>
+
+    <div class="fe-box">
+        <img src="/Images/features/blog.png" alt="">
+        <h6>Fashion Blog</h6>
+    </div>
+
+    <div class="fe-box">
+        <img src="/Images/features/happy.png" alt="">
+        <h6>Happy Customer</h6>
+    </div>
+
+    <div class="fe-box">
+        <img src="/Images/features/service.png" alt="">
+        <h6>24/7 Service</h6>
+    </div>
+  </section>
+
+
+  <footer class="section-p1">
+    <div class="col">
+      <a href="/Home/home.html" class="logo">
+        <span class="light-text">PERFECT</span>
+        <span class="dark-text">FIT</span>
+      </a>
+      <p>We're ready to assist you <br> in finding the perfect <br>outfit.</p>
+      <div class="follow">
+        <h4>FOLLOW US</h4>
+        <div class="icon">
+          <i class="fab fa-facebook-square share"></i>
+          <i class="fab fa-instagram-square share"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-main">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li><a href="/About/about.html">About</a></li>
+        <li><a href=/Blog/blog.html>Blog</a></li>
+        <li><a href="/Policy/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/Terms/terms.html">Terms Of Use</a></li>
+        <li><a href="/Chart/sizechart.html">Size Chart</a></li>
+      </ul>
+    </div>
+
+    <div class="col-two">
+      <h4>ACCOUNT</h4>
+      <ul>
+        <li><a href="/Login/signup.html">Sign Up</a></li>
+        <li><a href="/Login/login.html">Login</a></li>
+        
+      </ul>
+    </div>
+
+    <div class="col-three">
+      <p>Perfect Fit is a personalized<br>
+        fashion advising system that<br> 
+        provides style services for<br> 
+        women. We have specialized<br>
+        in recommending outfits.<br> <br>
+        
+        Our vision is to recommend and <br>
+        advise on providing up-to-date, <br>
+        high-quality, perfect-size outfits <br>
+        to our users.</p>
+    </div>
+
+  </footer>
+
+</body>
+</html>
+
+<script src="/Script/homeScript.js" type="module"></script>
+    <script type="module">
+      import { getAuth, onAuthStateChanged,} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+      import { getDatabase } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyAsbQQ1v4-iFojDtq_ZMnGQjD05p1NyqR4",
+        authDomain: "perfect-fit-web-6435f.firebaseapp.com",
+        projectId: "perfect-fit-web-6435f",
+        storageBucket: "perfect-fit-web-6435f.appspot.com",
+        messagingSenderId: "281776326236",
+        appId: "1:281776326236:web:19a0d34eeda067c7268899",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const database = getDatabase(app);
+      const auth = getAuth();
+
+      // Listen for changes in the user's authentication state
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is authenticated
+          console.log("User is authenticated");
+          // You can access the user's information using the 'user' object
+        } else {
+          // User is not authenticated
+          console.log("User is not authenticated");
+        }
+      });
+
+      const logoutLink = document.querySelector('a[href="logout"]');
+      logoutLink.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        auth.signOut()
+          .then(() => {
+            // Logout successful
+            // Redirect to the login page or perform any other desired action
+            window.location.href = "/Login/login.html";
+          })
+          .catch((error) => {
+            // An error occurred during logout
+            console.error('Logout error:', error);
+            // Handle the error appropriately
+          });
+      });
+</script>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sign Up Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Login/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" />
+</head>
+
+<body>
+    <section id="header">
+        <a href="/Home/home.html" class="logo">
+            <span class="light-text">PERFECT</span>
+            <span class="dark-text">FIT</span>
+        </a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="/Home/home.html">HOME</a></li>
+                <li><a href="/public/home.html">BLOG</a></li>
+                <li><a href="/About/about.html">ABOUT</a></li>
+                <li><a class="active" href="/Login/login.html"><i class="fa fa-user"></i></a></li>
+
+            </ul>
+        </div>
+    </section>
+
+    <div class="container">
+        <!--img src="/Images/background.jpg" class="background-image"!-->
+        <div class="logo-container">
+            <img src="/Images/logo.png" class="logo">
+        </div>
+        <div class="content-container">
+            <h1>SIGN UP</h1>
+            <div class="content">
+                <p class="second-p">Already have an account? <a href="login.html">Login</a></p>
+                <div class="input-container-wrapper">
+                    <form id="signup-form">
+                        <div class="input-container-wrapper">
+                            <div class="input-container">
+                                <label for="email"><i class="fa fa-user"></i>Email</label><br>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+
+                            <div class="input-container">
+                                <label for="password"><i class="fa fa-lock"></i>Password</label><br>
+                                <input type="password" id="password" name="password" placeholder="Enter your password"
+                                    required>
+                            </div>
+
+                            <div class="input-container">
+                                <label for="confirmPassword"><i class="fas fa-lock"></i>Confirm Password</label><br>
+                                <input type="password" id="confirmPassword" name="confirmPassword"
+                                    placeholder="Confirm your password" required>
+                            </div>
+                        </div>
+                        <button class="signup-button" type="submit" id="signup">SIGN UP</button>
+                    </form>
+                </div>
+
+                <!--p class="fourth-p">
+                    <input type="checkbox" id="agreeCheckbox">
+                    <label for="agreeCheckbox">I agree to the <a href="privacy-policy.html">privacy policy</a></label>
+                </p!-->
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+    import { ref, set } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyCFMZiI81PLeSUfWSZJA78ppkOuLfgt8zU",
+        authDomain: "perfect-fit-web.firebaseapp.com",
+        projectId: "perfect-fit-web",
+        storageBucket: "perfect-fit-web.appspot.com",
+        messagingSenderId: "89161650010",
+        appId: "1:89161650010:web:fe2058ac70b91f7e5aed63"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth();
+
+    const signupForm = document.getElementById('signup-form');
+    signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) {
+            alert('Confirm password does not match');
+            return;
+        }
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                alert('User created!');
+
+                // Store user's email in the database
+                const userRef = ref(database, 'users/' + user.uid);
+                set(userRef, { email })
+                    .then(() => {
+                        // Data stored successfully
+                        // Redirect to login page
+                        window.location.href = 'login.html';
+                    })
+                    .catch((error) => {
+                        alert('Failed to store user data: ' + error.message);
+                    });
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                alert(errorMessage);
+            });
+    });
+</script>
+
+
+</html>
