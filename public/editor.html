@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog: Editor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/editor.css">
+</head>
+
+<body>
+
+  <section id="header">
+    <a href="/Home/home.html" class="logo">
+      <span class="light-text">PERFECT</span>
+      <span class="dark-text">FIT</span>
+    </a>
+
+    <div>
+      <ul id="navbar">
+        <li><a href="/Home/home.html">HOME</a></li>
+        <li><a class="active" href="/public/home.html">BLOG</a></li>
+        <li><a href="/About/about.html">ABOUT</a></li>
+        <li><a href="/Login/login.html"><i class="fa fa-user"></i></a></li>
+        <li><a href="logout">LogOut</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="banner">
+    <input type="file" accept="image/*" id="banner-upload" hidden>
+    <label for="banner-upload" class="banner-upload-btn"><img src="img/upload.png" alt="upload banner"></label>
+  </div>
+
+  <div class="blog">
+    <textarea type="text" class="title" placeholder="Blog title...."></textarea>
+    <textarea type="text" class="article" placeholder="Start writing here...."></textarea>
+  </div>
+
+  <div class="blog-options">
+    <input type="file" accept="image/*" id="image-upload" hidden>
+    
+    <button class="btn dark publish-btn">publish</button>
+  </div>
+
+  <script type="module">
+    // Your custom JavaScript code that uses Firebase
+    import "/public/js/firebase.js"; 
+    // import "/public/js/editor.js"; 
+  </script>
+
+</body>
+
+</html>
+
+

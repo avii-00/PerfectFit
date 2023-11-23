@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/Quiz/quiz.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+    />
+  </head>
+
+  <body>
+    <section id="header">
+      <a href="/Home/home.html" class="logo">
+        <span class="light-text">PERFECT</span>
+        <span class="dark-text">FIT</span>
+      </a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="/Home/home.html">HOME</a></li>
+          <li><a href="/public/home.html">BLOG</a></li>
+          <li><a href="/About/about.html">ABOUT</a></li>
+          <li>
+            <a href="/Login/login.html"><i class="fa fa-user"></i></a>
+          </li>
+          <li><a href="logout">LogOut</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Question 01 -->
+    <section id="question1">
+      <div id="container">
+        <div class="content">
+          <div class="image-column">
+            <img src="/Images/questionnaire/1.jpg" alt="Question Image" />
+          </div>
+          <div class="text-column">
+            <h2>Hello!</h2>
+            <p>
+              Tell us about you. We can find pieces that fit <br />
+              your unique body, style, and occasion.
+            </p>
+            <form>
+              <div class="form-row">
+                <label for="name">Enter your name:</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-row">
+                <label for="age">Enter your age:</label>
+                <select id="age" name="age" required>
+                  <option value="" selected disabled>Select option</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+                  <option value="32">32</option>
+                  <option value="33">33</option>
+                  <option value="34">34</option>
+                  <option value="35">35</option>
+                  <option value="36">36</option>
+                  <option value="37">37</option>
+                  <option value="38">38</option>
+                  <option value="39">39</option>
+                  <option value="40">40</option>
+                  <option value="41">41</option>
+                  <option value="42">42</option>
+                  <option value="43">43</option>
+                  <option value="44">44</option>
+                  <option value="45">45</option>
+                  <option value="46">46</option>
+                  <option value="47">47</option>
+                  <option value="48">48</option>
+                  <option value="49">49</option>
+                  <option value="50">50</option>
+                  <option value="51">51</option>
+                  <option value="52">52</option>
+                  <option value="53">53</option>
+                  <option value="54">54</option>
+                  <option value="55">55</option>
+                  <option value="56">56</option>
+                  <option value="57">57</option>
+                  <option value="58">58</option>
+                  <option value="59">59</option>
+                  <option value="60">60</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="height">Enter your height in feet and inches (exp: 5'4"):</label>
+                <input type="text" id="height" name="height" required />
+              </div>
+              <div class="form-row">
+                <label for="weight"
+                  >Enter your weight in lbs (exp: 137lbs):</label
+                >
+                <input type="text" id="weight" name="weight" required />
+              </div>
+              <div class="buttons">
+                <button type="button" id="backBtn">Back</button>
+                <button type="button" id="nextBtn">Next</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Question 02 -->
+    <section id="question2" style="display: none">
+      <div id="container">
+        <div class="heading">
+          <h2 class="question-heading">
+            Tell us the reasons you're excited to try<br />Perfect Fit
+          </h2>
+        </div>
+        <div class="content">
+          <div class="oval-container">
+            <div class="oval-row">
+              <div class="oval" onclick="toggleOval(this)">
+                Get personalized advice
+              </div>
+              <div class="oval" onclick="toggleOval(this)">
+                Update my wardrobe
+              </div>
+              <div class="oval" onclick="toggleOval(this)">Inspiration</div>
+            </div>
+
+            <div class="oval-row">
+              <div class="oval" onclick="toggleOval(this)">
+                Get seasonal looks
+              </div>
+              <div class="oval" onclick="toggleOval(this)">
+                Get the perfect outfit
+              </div>
+            </div>
+
+            <div class="oval-row">
+              <div class="oval oval-centered" onclick="toggleOval(this)">
+                Dress appropriately
+              </div>
+            </div>
+          </div>
+          <div class="buttons">
+            <button type="button" id="backBtn2" onclick="goToQuestion(1)">
+              Back
+            </button>
+            <button type="button" id="nextBtn2">Next</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Question 03 -->
+    <section id="question3" style="display: none">
+      <div id="container">
+        <div class="heading">
+          <h2 class="measurements-heading">Enter your bust size</h2>
+        </div>
+        <div class="content">
+          <div class="image-column">
+            <img src="/Images/questionnaire/11.jpg" alt="Question Image" />
+          </div>
+          <div class="text-column">
+            <p class="size-chart-link">
+              <a href="/Chart/sizechart.html">Size Chart</a>
+            </p>
+            <p class="measurements-info">
+              Take the measurement in inches. Enter bust <br />
+              size + cup size (a, b, c or d) Exp: 34d
+            </p>
+            <form>
+              <div class="form-row">
+                <label for="bust">Bust:</label>
+                <input type="text" id="bust" name="bust" required />
+              </div>
+              <div class="buttons">
+                <button
+                  type="button"
+                  id="backBtn3"
+                  onclick="goBackToQuestion2()"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  id="nextBtn3"
+                  onclick="validateAndGoToQuestion4()"
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Question 04 -->
+    <section id="question4" style="display: none">
+      <div id="container">
+        <div class="heading">
+          <h2 class="measurements-heading">What is your size?</h2>
+        </div>
+        <div class="content">
+          <div class="image-column">
+            <img src="/Images/questionnaire/3.jpg" alt="Question Image" />
+          </div>
+          <div class="text-column">
+            <p class="size-info">
+              small 4-6, medium 8-10, large 12-14, <br />
+              XLarge 16-18, 2XLarge 18-20
+            </p>
+            <form>
+              <div class="form-row">
+                <label for="size">Size:</label>
+                <select id="size" name="size" required>
+                  <option value="" selected disabled>Select option</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                </select>
+              </div>
+              <div class="buttons">
+                <button
+                  type="button"
+                  id="backBtn4"
+                  onclick="goBackToQuestion3()"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  id="nextBtn4"
+                  onclick="validateAndGoToQuestion5()"
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Question 05 -->
+    <section id="question5" style="display: none">
+      <div id="container">
+        <div class="heading">
+          <h2 class="skin-heading">What is your skin tone?</h2>
+        </div>
+        <div class="content">
+          <div class="image-column">
+            <img src="/Images/questionnaire/5.jpg" alt="Question Image" />
+          </div>
+          <div class="text-column">
+            <form>
+              <div class="form-row">
+                <label for="skin">Choose the skin tone:</label>
+                <select id="skin" name="skin" required>
+                  <option value="" selected disabled>Select skin tone</option>
+                  <option value="fair">Fair</option>
+                  <option value="light">Light</option>
+                  <option value="tan">Tan</option>
+                  <option value="dark">Dark</option>
+                  <option value="deep">Deep</option>
+                </select>
+              </div>
+              <div class="buttons">
+                <button
+                  type="button"
+                  id="backBtn5"
+                  onclick="goBackToQuestion4()"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  id="nextBtn5"
+                  onclick="validateAndGoToQuestion6()"
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Question 06 -->
+    <section id="question6" style="display: none">
+      <div id="container">
+        <div class="heading">
+          <h2 class="occasion-heading">
+            What kind of occasion are you looking for an outfit for?
+          </h2>
+        </div>
+        <div class="content">
+          <div class="image-column">
+            <img src="/Images/questionnaire/6.jpg" alt="Question Image" />
+          </div>
+          <div class="text-column">
+            <form>
+              <div class="form-row">
+                <label for="occasion">Choose the occasion:</label>
+                <select id="occasion" name="occasion" required>
+                  <option value="" selected disabled>
+                    Select the occasion
+                  </option>
+                  <option value="Casual Outings">
+                    Casual outings (hanging out with friends, running errands,
+                    etc.)
+                  </option>
+                  <option value="Work">
+                    Work (office attire, professional meetings, etc.)
+                  </option>
+                  <option value="Formal Events">
+                    Formal events (weddings, engagements, etc.)
+                  </option>
+                </select>
+              </div>
+              <div class="buttons">
+                <button
+                  type="button"
+                  id="backBtn6"
+                  onclick="goBackToQuestion5()"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  id="nextBtn6"
+                  onclick="validateAndGoToQuestion7()"
+                >
+                  Next
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Question 7 -->
+    <section id="question7" style="display: none">
+      <div id="container">
+        <div class="heading">
+          <h2 class="type-heading">What is your body type?</h2>
+        </div>
+        <div class="content">
+          <div class="image-column">
+            <img src="/Images/questionnaire/10.jpg" alt="Question Image" />
+          </div>
+          <div class="text-column">
+            <form>
+              <div class="form-row">
+                <label for="type">Choose the type:</label>
+                <select id="type" name="type" required>
+                  <option value="" selected disabled>Select the type</option>
+                  <option value="Hourglass">Hourglass</option>
+                  <option value="Pear">Pear</option>
+                  <option value="Apple">Apple</option>
+                  <option value="Athletic">Athletic</option>
+                  <option value="Full Bust">Full Bust</option>
+                  <option value="petite">Petite</option>
+                  <option value="straight & narrow">Straight & Narrow</option>
+                </select>
+              </div>
+              <div class="buttons">
+                <button
+                  type="button"
+                  id="backBtn7"
+                  onclick="goBackToQuestion6()">Back
+                </button>
+                <button type="button" id="nextBtn7">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <a class="recommendation-button" href="/Recommendation/recommendation.html">View Recommendations </a>
+    </section>
+
+    <br><br>
+    
+    <footer class="section-p1">
+      <div class="col">
+        <a href="/Home/home.html" class="logo">
+          <span class="light-text">PERFECT</span>
+          <span class="dark-text">FIT</span>
+        </a>
+        <p>
+          We're ready to assist you <br />
+          in finding the perfect <br />outfit.
+        </p>
+        <div class="follow">
+          <h4>FOLLOW US</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-square share"></i>
+            <i class="fab fa-instagram-square share"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-main">
+        <h4>QUICK LINKS</h4>
+        <ul>
+          <li><a href="/About/about.html">About</a></li>
+          <li><a href="/public/home.html">Blog</a></li>
+          <li><a href="/Policy/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/Terms/terms.html">Terms Of Use</a></li>
+          <li><a href="/Chart/sizechart.html">Size Chart</a></li>
+        </ul>
+      </div>
+
+      <div class="col-two">
+        <h4>ACCOUNT</h4>
+        <ul>
+          <li><a href="/Login/signup.html">Sign Up</a></li>
+          <li><a href="/Login/login.html">Login</a></li>
+        </ul>
+      </div>
+
+      <div class="col-three">
+        <p>
+          Perfect Fit is a personalized<br />
+          fashion advising system that<br />
+          provides style services for<br />
+          women. We have specialized<br />
+          in recommending outfits.<br />
+          <br />
+
+          Our vision is to recommend and <br />
+          advise on providing up-to-date, <br />
+          high-quality, perfect-size outfits <br />
+          to our users.
+        </p>
+      </div>
+    </footer>
+    <script src="/Script/script.js"></script>
+  </body>
+</html>
+
+<script>
+
+
+</script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+  import {
+    ref,
+    set,
+  } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+  import {
+    getFirestore,
+    collection,
+    addDoc,
+    serverTimestamp,
+    query,
+    getDocs,
+    where,
+    orderBy,
+    limit,
+  } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCFMZiI81PLeSUfWSZJA78ppkOuLfgt8zU",
+    authDomain: "perfect-fit-web.firebaseapp.com",
+    projectId: "perfect-fit-web",
+    storageBucket: "perfect-fit-web.appspot.com",
+    messagingSenderId: "89161650010",
+    appId: "1:89161650010:web:fe2058ac70b91f7e5aed63",
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+  const auth = getAuth();
+  const firestore = getFirestore(app);
+
+  window.onload = function () {
+    console.log("logged ");
+    auth.onAuthStateChanged((user) => {
+      console.log(user["email"]);
+      if (!user) {
+        // User is not authenticated, redirect to the login page or any other desired page
+        window.location.href = "/Login/login.html";
+      }
+    });
+  };
+
+  const logoutLink = document.querySelector('a[href="logout"]');
+  logoutLink.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    auth
+      .signOut()
+      .then(() => {
+        // Logout successful
+        // Redirect to the login page or perform any other desired action
+        window.location.href = "/Login/login.html";
+      })
+      .catch((error) => {
+        // An error occurred during logout
+        console.error("Logout error:", error);
+        // Handle the error appropriately
+      });
+  });
+
+  const nameField = document.querySelector("#name");
+  const ageField = document.querySelector("#age");
+  const heightField = document.querySelector("#height");
+  const weightField = document.querySelector("#weight");
+  const bustField = document.querySelector("#bust");
+  const sizeField = document.querySelector("#size");
+  const skinField = document.querySelector("#skin");
+  const occasionField = document.querySelector("#occasion");
+  const typeField = document.querySelector("#type");
+  const recommendationBtn = document.querySelector(".recommendation-button");
+
+  // const nextButton =document.querySelector('#nextBtn7');
+  const nextButton7 = document.querySelector("#nextBtn7");
+  // Function to save the quiz data to the Firestore collection
+  nextButton7.addEventListener("click", async () => {
+    var selectedType = typeField.value;
+    if (
+      selectedType === "" ||
+      selectedType === null ||
+      selectedType === undefined
+    ) {
+      alert("Please choose a body type");
+    }
+
+    console.log("hello");
+
+    const user = auth.currentUser;
+    const userUID = user.uid;
+
+    const name = nameField.value;
+    const age = ageField.value;
+    const height = heightField.value;
+    const weight = weightField.value;
+    const bust = bustField.value;
+    const size = sizeField.value;
+    const skin = skinField.value;
+    const occasion = occasionField.value;
+    const Type = typeField.value;
+
+    console.log(height);
+    console.log(weight);
+    console.log(bust);
+    console.log(size);
+    console.log(skin);
+    console.log(occasion);
+    console.log(Type);
+
+    const quizCollection = collection(firestore, "quiz");
+    const quizData = {
+      uid: userUID,
+      name: name,
+      age: age,
+      height: height,
+      weight: weight,
+      bust: bust,
+      size: size,
+      skin: skin,
+      occasion: occasion,
+      Type: Type,
+      timestamp: serverTimestamp(),
+      // Add any other quiz details you want to save
+    };
+    console.log(quizData);
+
+    try {
+      const docRef = await addDoc(quizCollection, quizData);
+      console.log("Quiz data saved successfully with ID:", docRef.id);
+
+      const res = await fetch("http://127.0.0.1:8000/query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          uid: quizData.uid,
+          name: quizData.name,
+          age: quizData.age,
+          height: quizData.height,
+          weight: quizData.weight,
+          bust: quizData.bust,
+          size: quizData.size,
+          skin: quizData.skin,
+          occasion: quizData.occasion,
+          type: quizData.Type,
+        }),
+      });
+
+      const data = await res.json();
+      if (data.status === "success") {
+        console.log("Generated Recommendations");
+        recommendationBtn.style.display = "block";
+      }
+
+      /*
+      // Function to fetch all quiz data for the currently authenticated user
+      async function fetchQuizDataForUser() {
+        const user = auth.currentUser;
+        if (!user) {
+          console.log("User is not authenticated.");
+          return; // Exit the function if user is not authenticated
+        }
+
+        const user_id = user.email;
+        const quizCollection = collection(firestore, "quiz");
+        try {
+          const querySnapshot = await getDocs(
+            query(
+              quizCollection,
+              where("uid", "==", userUID),
+              orderBy("timestamp", "desc"),
+              limit(1)
+            )
+          );
+
+          const quizDataArray = [];
+          querySnapshot.forEach((doc) => {
+            quizDataArray.push(doc.data());
+          });
+
+          return quizDataArray;
+        } catch (error) {
+          console.error("Error fetching quiz data:", error);
+          return [];
+        }
+      }*/
+    } catch (error) {
+      console.log(error);
+    }
+    /*
+    // Fetch all quiz data for the user
+    fetchQuizDataForUser()
+      .then((quizDataArray) => {
+        // Convert the data to JSON format
+        const jsonData = JSON.stringify(quizDataArray, null, 2);
+
+        // Create a JSON file or do anything else with the JSON data
+        // For example, you can create a Blob and download it as a file
+        const blob = new Blob([jsonData], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "quiz_data.json";
+        a.click();
+        URL.revokeObjectURL(url);
+      })
+      .catch((error) => {
+        console.error("Error fetching quiz data:", error);
+      });*/
+  });
+</script>
